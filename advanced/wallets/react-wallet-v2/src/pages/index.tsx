@@ -21,6 +21,8 @@ import ChainAbstractionBalanceCard from '@/components/ChainAbstractionBalanceCar
 import { SUI_MAINNET, SUI_MAINNET_CHAINS, SUI_TESTNET_CHAINS } from '@/data/SuiData'
 import { STACKS_MAINNET, STACKS_TESTNET } from '@/data/StacksData'
 
+import { bip122Wallet } from '@/utils/Bip122WalletUtil'
+
 export default function HomePage() {
   const {
     testNets,
@@ -144,7 +146,8 @@ export default function HomePage() {
           name={name}
           logo={logo}
           rgb={rgb}
-          address={bip122Address}
+          address={bip122Wallet.getAddress(caip10)}
+          //address={bip122Address}
           chainId={caip10}
           data-testid={'chain-card-' + caip10.toString()}
         />

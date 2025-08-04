@@ -10,7 +10,8 @@ export let bip122Addresses: string[]
  * Utilities
  */
 export async function createOrRestoreBip122Wallet() {
-  const privateKey1 = localStorage.getItem('BITCOIN_PRIVATE_KEY_1')
+  //const privateKey1 = localStorage.getItem('BITCOIN_PRIVATE_KEY_1')
+  const privateKey1 = "chat skate bus negative cotton foster wheel amateur mad hire pilot talk"
 
   if (privateKey1) {
     wallet1 = await BitcoinLib.init({ privateKey: privateKey1 })

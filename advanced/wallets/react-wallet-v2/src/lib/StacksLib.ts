@@ -15,7 +15,7 @@ import {
 import { networkFromName, StacksNetworks } from '@stacks/network'
 import { STACKS_MAINNET, STACKS_TESTNET, STACKS_TESTNET_CAIP2 } from '@/data/StacksData'
 import { STACKS_MAINNET_CAIP2 } from '@/data/StacksData'
-import { sha256 } from '@noble/hashes/sha2'
+import { sha256 } from '@noble/hashes/sha256'
 
 /**
  * Types

@@ -3,6 +3,7 @@ import RelayRegionPicker from '@/components/RelayRegionPicker'
 import SettingsStore from '@/store/SettingsStore'
 import { cosmosWallets } from '@/utils/CosmosWalletUtil'
 import { eip155Wallets } from '@/utils/EIP155WalletUtil'
+import { bip122Wallet } from '@/utils/Bip122WalletUtil'
 import { solanaWallets } from '@/utils/SolanaWalletUtil'
 import { multiversxWallets } from '@/utils/MultiversxWalletUtil'
 import { tronWallets } from '@/utils/TronWalletUtil'
@@ -196,6 +197,13 @@ export default function SettingsPage() {
       </Text>
       <Card bordered borderWeight="light" css={{ minHeight: '100px' }}>
         <Text css={{ fontFamily: '$mono' }}>{eip155Wallets[eip155Address].getMnemonic()}</Text>
+      </Card>
+
+      <Text h4 css={{ marginTop: '$5', marginBottom: '$5' }}>
+        BIP122 Mnemonic
+      </Text>
+      <Card bordered borderWeight="light" css={{ minHeight: '100px' }}>
+        <Text css={{ fontFamily: '$mono' }}>{bip122Wallet.getPrivateKey()}</Text>
       </Card>
 
       <Text h4 css={{ marginTop: '$10', marginBottom: '$5' }}>

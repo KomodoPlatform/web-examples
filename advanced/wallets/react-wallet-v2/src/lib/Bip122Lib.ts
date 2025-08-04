@@ -212,7 +212,7 @@ export default class Bip122Lib {
     const isTestnet = this.isTestnet(chainId)
     // make chain dynamic
     return await (
-      await fetch(`https://mempool.space${isTestnet ? '/testnet' : ''}/api/address/${address}/utxo`)
+      await fetch(`https://mempool.space${isTestnet ? '/testnet4' : ''}/api/address/${address}/utxo`)
     ).json()
   }
 
@@ -392,7 +392,7 @@ export default class Bip122Lib {
       transaction.signInput(index, keyPairToSignWith, sighashTypes)
     })
     transaction.validateSignaturesOfInput(0, validator)
-    transaction.finalizeAllInputs()
+    //transaction.finalizeAllInputs() // Avoid finalizing the transaction cuz this breaks for custom P2SH spend (like our HTLC spends)
 
     if (!broadcast) {
       return {
