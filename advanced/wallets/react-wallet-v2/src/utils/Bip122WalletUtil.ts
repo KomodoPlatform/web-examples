@@ -6,12 +6,23 @@ export let wallet2: BitcoinLib
 export let bip122Wallet: BitcoinLib
 export let bip122Addresses: string[]
 
+
+function getPrivateKeyForPort(): string {
+  const port = parseInt(window.location.port || '3001')
+  const privateKeys: Record<number, string> = {
+    3001: "seed 1",
+    3002: "seed 2",
+    3003: "chat skate bus negative cotton foster wheel amateur mad hire pilot talk",
+  }
+
+  return privateKeys[port]
+}
+
 /**
  * Utilities
  */
 export async function createOrRestoreBip122Wallet() {
-  //const privateKey1 = localStorage.getItem('BITCOIN_PRIVATE_KEY_1')
-  const privateKey1 = "chat skate bus negative cotton foster wheel amateur mad hire pilot talk"
+  const privateKey1 = getPrivateKeyForPort()
 
   if (privateKey1) {
     wallet1 = await BitcoinLib.init({ privateKey: privateKey1 })
